@@ -4,284 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Иван Иванов | Резюме</title>
-  <!-- Google Fonts & Font Awesome -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg-primary);
-      color: var(--text-primary);
-      line-height: 1.5;
-      scroll-behavior: smooth;
-    }
-
-    /* Themes */
-    :root {
-      --bg-primary: #ffffff;
-      --bg-secondary: #f8fafc;
-      --card-bg: #ffffff;
-      --text-primary: #0f172a;
-      --text-secondary: #334155;
-      --accent: #3b82f6;
-      --accent-hover: #2563eb;
-      --border: #e2e8f0;
-      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
-    }
-
-    body.dark {
-      --bg-primary: #0f172a;
-      --bg-secondary: #1e293b;
-      --card-bg: #1e293b;
-      --text-primary: #f1f5f9;
-      --text-secondary: #cbd5e1;
-      --accent: #60a5fa;
-      --accent-hover: #93c5fd;
-      --border: #334155;
-      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
-    }
-
-    /* Layout */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* Header & Nav */
-    header {
-      background: var(--bg-secondary);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .nav-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      padding: 1rem 0;
-      gap: 1rem;
-    }
-
-    .logo {
-      font-weight: 700;
-      font-size: 1.5rem;
-      color: var(--accent);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.8rem;
-      flex-wrap: wrap;
-      list-style: none;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--text-primary);
-      font-weight: 500;
-    }
-
-    .nav-links a:hover {
-      color: var(--accent);
-    }
-
-    .controls {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-    }
-
-    .toggle-btn {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 40px;
-      padding: 8px 14px;
-      cursor: pointer;
-      font-weight: 500;
-      color: var(--text-primary);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.9rem;
-    }
-
-    .toggle-btn i {
-      font-size: 1rem;
-    }
-
-    /* Sections */
-    section {
-      padding: 80px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .section-title {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      font-weight: 700;
-      position: relative;
-      display: inline-block;
-    }
-
-    .section-title:after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      left: 0;
-      width: 60%;
-      height: 3px;
-      background: var(--accent);
-      border-radius: 3px;
-    }
-
-    /* Cards & Grid */
-    .skills-grid, .projects-grid, .education-card {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.8rem;
-    }
-
-    .skill-card, .project-card, .edu-item {
-      background: var(--card-bg);
-      border-radius: 20px;
-      padding: 1.5rem;
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border);
-    }
-
-    .skill-card i, .project-card i {
-      font-size: 2rem;
-      color: var(--accent);
-      margin-bottom: 1rem;
-    }
-
-    /* Form */
-    .contact-form {
-      background: var(--card-bg);
-      border-radius: 24px;
-      padding: 2rem;
-      border: 1px solid var(--border);
-      max-width: 700px;
-    }
-
-    .form-group {
-      margin-bottom: 1.2rem;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 12px 16px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: var(--bg-primary);
-      color: var(--text-primary);
-      font-family: inherit;
-      font-size: 1rem;
-    }
-
-    textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
-
-    .error-msg {
-      color: #ef4444;
-      font-size: 0.75rem;
-      margin-top: 4px;
-      display: block;
-    }
-
-    button {
-      background: var(--accent);
-      border: none;
-      padding: 12px 28px;
-      border-radius: 40px;
-      color: white;
-      font-weight: 600;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: 0.2s;
-    }
-
-    button:hover {
-      background: var(--accent-hover);
-      transform: scale(0.98);
-    }
-
-    .pdf-btn {
-      background: transparent;
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      margin-top: 1rem;
-    }
-
-    .footer {
-      text-align: center;
-      padding: 2rem 0;
-      color: var(--text-secondary);
-    }
-
-    /* 404 page simulation (not found container) */
-    .notfound-container {
-      text-align: center;
-      padding: 100px 20px;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .nav-bar {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .nav-links {
-        justify-content: center;
-        gap: 1rem;
-      }
-      .controls {
-        justify-content: center;
-      }
-      section {
-        padding: 50px 0;
-      }
-      .section-title {
-        font-size: 1.7rem;
-      }
-    }
-
-    /* utility */
-    .hidden {
-      display: none;
-    }
-
-    .flex-between {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 1px solid var(--accent);
-      color: var(--accent);
-    }
-
-    a {
-      color: var(--accent);
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -307,29 +32,26 @@
 </header>
 
 <main class="container">
-  <!-- Главная секция -->
   <section id="home">
-    <div style="min-height: 60vh; display: flex; flex-direction: column; justify-content: center;">
-      <h1 style="font-size: clamp(2.5rem, 6vw, 4rem);"><span data-i18n="greeting">Привет, я</span> Иван Иванов</h1>
-      <p style="font-size: 1.4rem; margin: 1rem 0; color: var(--text-secondary);" data-i18n="tagline">Frontend-разработчик | создаю современные веб-приложения</p>
-      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-        <a href="#contact" class="toggle-btn" style="text-decoration: none;" data-i18n="hire_me">Связаться</a>
-        <a href="https://github.com/ivanov" target="_blank" class="toggle-btn" style="text-decoration: none;"><i class="fab fa-github"></i> GitHub</a>
+    <div class="hero">
+      <h1><span data-i18n="greeting">Привет, я</span> Иван Иванов</h1>
+      <p class="tagline" data-i18n="tagline">Frontend-разработчик | создаю современные веб-приложения</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn-primary" data-i18n="hire_me">Связаться</a>
+        <a href="https://github.com/ivanov" target="_blank" class="btn-outline"><i class="fab fa-github"></i> GitHub</a>
       </div>
     </div>
   </section>
 
-  <!-- О себе -->
   <section id="about">
     <h2 class="section-title" data-i18n="about_title">О себе</h2>
-    <div style="background: var(--card-bg); border-radius: 24px; padding: 2rem; border:1px solid var(--border);">
+    <div class="about-card">
       <p data-i18n="about_text1">Я фронтенд-разработчик с более чем 4-летним опытом создания адаптивных и производительных веб-интерфейсов. Люблю решать сложные задачи и учиться новому.</p>
       <p style="margin-top: 1rem;" data-i18n="about_text2">Работал над проектами в сфере e-commerce, fintech и edtech. Постоянно совершенствую свои навыки и делюсь опытом с сообществом.</p>
-      <p style="margin-top: 1rem;"><i class="fas fa-map-marker-alt"></i> Москва, РФ | <i class="far fa-envelope"></i> ivan.ivanov@example.com | <i class="fab fa-telegram"></i> @ivan_dev</p>
+      <p class="contact-info"><i class="fas fa-map-marker-alt"></i> Москва, РФ | <i class="far fa-envelope"></i> ivan.ivanov@example.com | <i class="fab fa-telegram"></i> @ivan_dev</p>
     </div>
   </section>
 
-  <!-- Навыки -->
   <section id="skills">
     <h2 class="section-title" data-i18n="skills_title">Навыки</h2>
     <div class="skills-grid">
@@ -340,26 +62,23 @@
     </div>
   </section>
 
-  <!-- Образование -->
   <section id="education">
     <h2 class="section-title" data-i18n="edu_title">Образование</h2>
-    <div class="education-card">
-      <div class="edu-item"><i class="fas fa-graduation-cap" style="font-size: 2rem;"></i><h3>МГТУ им. Баумана</h3><p>Информатика и вычислительная техника, магистр (2018-2023)</p><small>Красный диплом, специализация: веб-технологии</small></div>
-      <div class="edu-item"><i class="fas fa-certificate"></i><h3>Профессиональные курсы</h3><p>HTML Academy: Профессиональный React, Яндекс Практикум: Веб-разработчик</p></div>
+    <div class="education-grid">
+      <div class="edu-card"><i class="fas fa-graduation-cap"></i><h3>МГТУ им. Баумана</h3><p>Информатика и вычислительная техника, магистр (2018-2023)</p><small>Красный диплом, специализация: веб-технологии</small></div>
+      <div class="edu-card"><i class="fas fa-certificate"></i><h3>Профессиональные курсы</h3><p>HTML Academy: Профессиональный React, Яндекс Практикум: Веб-разработчик</p></div>
     </div>
   </section>
 
-  <!-- Проекты -->
   <section id="projects">
     <h2 class="section-title" data-i18n="projects_title">Проекты</h2>
     <div class="projects-grid">
-      <div class="project-card"><i class="fas fa-cloud-sun"></i><h3>Weather App</h3><p data-i18n="proj1">Приложение погоды с OpenWeather API, геолокацией, переключением тем.</p><a href="#" style="color:var(--accent);">github.com/ivanov/weather →</a></div>
-      <div class="project-card"><i class="fas fa-tasks"></i><h3>Task Manager</h3><p data-i18n="proj2">Управление задачами с аутентификацией и localStorage, drag-and-drop.</p><a href="#" style="color:var(--accent);">github.com/ivanov/tasks →</a></div>
-      <div class="project-card"><i class="fas fa-shopping-cart"></i><h3>Marketplace frontend</h3><p data-i18n="proj3">Каталог товаров, корзина, фильтрация, адаптив под мобильные.</p><a href="#" style="color:var(--accent);">github.com/ivanov/market →</a></div>
+      <div class="project-card"><i class="fas fa-cloud-sun"></i><h3>Weather App</h3><p data-i18n="proj1">Приложение погоды с OpenWeather API, геолокацией, переключением тем.</p><a href="#">github.com/ivanov/weather →</a></div>
+      <div class="project-card"><i class="fas fa-tasks"></i><h3>Task Manager</h3><p data-i18n="proj2">Управление задачами с аутентификацией и localStorage, drag-and-drop.</p><a href="#">github.com/ivanov/tasks →</a></div>
+      <div class="project-card"><i class="fas fa-shopping-cart"></i><h3>Marketplace frontend</h3><p data-i18n="proj3">Каталог товаров, корзина, фильтрация, адаптив под мобильные.</p><a href="#">github.com/ivanov/market →</a></div>
     </div>
   </section>
 
-  <!-- Форма обратной связи -->
   <section id="contact">
     <h2 class="section-title" data-i18n="contact_title">Форма обратной связи</h2>
     <div class="contact-form">
@@ -381,17 +100,15 @@
           <span class="error-msg" id="questionError"></span>
         </div>
         <button type="submit" id="submitBtn" data-i18n="send_btn">Отправить</button>
-        <p id="formStatus" style="margin-top: 12px; font-size:0.9rem;"></p>
+        <p id="formStatus"></p>
       </form>
     </div>
-    <!-- Ссылка на GitHub профиль -->
-    <div style="margin-top: 2rem; text-align: center;">
-      <a href="https://github.com/ivanov" target="_blank" style="font-size:1.2rem;"><i class="fab fa-github"></i> github.com/ivanov</a>
+    <div class="github-link">
+      <a href="https://github.com/ivanov" target="_blank"><i class="fab fa-github"></i> github.com/ivanov</a>
     </div>
   </section>
 </main>
 
-<!-- Страница 404 (скрытая секция, отображаем если роут не найден через хэш) -->
 <div id="notFoundPage" style="display: none;" class="container notfound-container">
   <h1>404</h1>
   <p data-i18n="404text">Страница не найдена. Вернуться на <a href="#" id="backHome">главную</a>.</p>
@@ -401,202 +118,6 @@
   <p>© 2025 Иван Иванов. <span data-i18n="footer">Все права защищены.</span></p>
 </footer>
 
-<script>
-  // -------------------- Мультиязычность (RU / EN) --------------------
-  const translations = {
-    ru: {
-      nav_home: "Главная", nav_about: "О себе", nav_skills: "Навыки", nav_education: "Образование",
-      nav_projects: "Проекты", nav_contact: "Контакты", greeting: "Привет, я", tagline: "Frontend-разработчик | создаю современные веб-приложения",
-      hire_me: "Связаться", about_title: "О себе", about_text1: "Я фронтенд-разработчик с более чем 4-летним опытом создания адаптивных и производительных веб-интерфейсов. Люблю решать сложные задачи и учиться новому.",
-      about_text2: "Работал над проектами в сфере e-commerce, fintech и edtech. Постоянно совершенствую свои навыки и делюсь опытом с сообществом.",
-      skills_title: "Навыки", edu_title: "Образование", projects_title: "Проекты", contact_title: "Форма обратной связи",
-      proj1: "Приложение погоды с OpenWeather API, геолокацией, переключением тем.",
-      proj2: "Управление задачами с аутентификацией и localStorage, drag-and-drop.",
-      proj3: "Каталог товаров, корзина, фильтрация, адаптив под мобильные.",
-      form_name: "Имя *", form_phone: "Телефон * +7XXXXXXXXXX", form_email: "Email *", form_question: "Ваш вопрос *",
-      send_btn: "Отправить", footer: "Все права защищены.", 404text: "Страница не найдена. Вернуться на главную.",
-      name_required: "Введите имя", phone_invalid: "Введите корректный номер телефона (10 цифр, +7 или 8)", email_invalid: "Введите корректный email",
-      question_required: "Введите вопрос", success_msg: "Спасибо! Ваше сообщение отправлено (демо).", theme_dark: "Тёмная", theme_light: "Светлая"
-    },
-    en: {
-      nav_home: "Home", nav_about: "About", nav_skills: "Skills", nav_education: "Education",
-      nav_projects: "Projects", nav_contact: "Contact", greeting: "Hi, I'm", tagline: "Frontend developer | building modern web apps",
-      hire_me: "Contact me", about_title: "About Me", about_text1: "Frontend developer with 4+ years of experience building responsive and performant web interfaces. Love solving complex problems and learning new tech.",
-      about_text2: "Worked on projects in e-commerce, fintech and edtech. Constantly improving my skills and sharing knowledge.",
-      skills_title: "Skills", edu_title: "Education", projects_title: "Projects", contact_title: "Contact Form",
-      proj1: "Weather app with OpenWeather API, geolocation, theme switching.",
-      proj2: "Task manager with authentication, localStorage, drag-and-drop.",
-      proj3: "Product catalog, cart, filtering, fully responsive.",
-      form_name: "Full Name *", form_phone: "Phone * +7XXXXXXXXXX", form_email: "Email *", form_question: "Your question *",
-      send_btn: "Submit", footer: "All rights reserved.", 404text: "Page not found. Back to home.",
-      name_required: "Name is required", phone_invalid: "Enter valid phone number (10 digits, +7 or 8)", email_invalid: "Enter valid email",
-      question_required: "Question is required", success_msg: "Thank you! Your message has been sent (demo).", theme_dark: "Dark", theme_light: "Light"
-    }
-  };
-
-  let currentLang = 'ru'; // default fallback
-
-  function updateLanguage(lang) {
-    currentLang = lang;
-    const elements = document.querySelectorAll('[data-i18n]');
-    elements.forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      if (translations[lang][key]) {
-        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-          el.placeholder = translations[lang][key];
-        } else {
-          el.innerText = translations[lang][key];
-        }
-      }
-    });
-    // placeholder update for inputs with data-i18n-placeholder
-    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-      const key = el.getAttribute('data-i18n-placeholder');
-      if(translations[lang][key]) el.placeholder = translations[lang][key];
-    });
-    document.getElementById('langText').innerText = lang === 'ru' ? 'EN' : 'RU';
-  }
-
-  function getBrowserLang() {
-    const navLang = navigator.language || navigator.userLanguage;
-    return navLang.startsWith('ru') ? 'ru' : 'en';
-  }
-
-  // -------------------- Тема (dark/light + prefers) --------------------
-  const applyTheme = (theme) => {
-    if (theme === 'dark') document.body.classList.add('dark');
-    else document.body.classList.remove('dark');
-    localStorage.setItem('theme', theme);
-    const themeTextSpan = document.getElementById('themeText');
-    if (themeTextSpan) themeTextSpan.innerText = theme === 'dark' ? (currentLang === 'ru' ? 'Тёмная' : 'Dark') : (currentLang === 'ru' ? 'Светлая' : 'Light');
-  };
-
-  function getSystemTheme() {
-    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  }
-
-  function initTheme() {
-    let savedTheme = localStorage.getItem('theme');
-    if (!savedTheme) savedTheme = getSystemTheme();
-    applyTheme(savedTheme);
-  }
-
-  // -------------------- PDF генерация (window.print - стилизованно как резюме) --------------------
-  function downloadPDF() {
-    const originalTitle = document.title;
-    document.title = "Ivan_Ivanov_Resume.pdf";
-    window.print();
-    document.title = originalTitle;
-    // Можно улучшить, но по ТЗ window.print достаточно, создаст PDF версию
-  }
-
-  // -------------------- Валидация формы + Google Sheets (демо с сохранением в консоль, но можно слать fetch) --------------------
-  const form = document.getElementById('feedbackForm');
-  const nameInp = document.getElementById('name');
-  const phoneInp = document.getElementById('phone');
-  const emailInp = document.getElementById('email');
-  const questionInp = document.getElementById('question');
-  const nameErr = document.getElementById('nameError');
-  const phoneErr = document.getElementById('phoneError');
-  const emailErr = document.getElementById('emailError');
-  const questionErr = document.getElementById('questionError');
-  const statusMsg = document.getElementById('formStatus');
-
-  function validatePhone(phone) {
-    const phoneRegex = /^(\+7|8)?[\s\-]?\(?[0-9]{3}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/;
-    const digits = phone.replace(/\D/g, '');
-    if (digits.length === 11 && (digits.startsWith('7') || digits.startsWith('8'))) return true;
-    if (digits.length === 10) return true;
-    return phoneRegex.test(phone);
-  }
-
-  function validateEmail(email) {
-    return /^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,}$/.test(email);
-  }
-
-  function clearErrors() {
-    nameErr.innerText = phoneErr.innerText = emailErr.innerText = questionErr.innerText = '';
-  }
-
-  async function handleSubmit(e) {
-    e.preventDefault();
-    clearErrors();
-    let isValid = true;
-    const nameVal = nameInp.value.trim();
-    const phoneVal = phoneInp.value.trim();
-    const emailVal = emailInp.value.trim();
-    const questionVal = questionInp.value.trim();
-
-    if (!nameVal) { nameErr.innerText = translations[currentLang].name_required; isValid = false; }
-    if (!validatePhone(phoneVal)) { phoneErr.innerText = translations[currentLang].phone_invalid; isValid = false; }
-    if (!validateEmail(emailVal)) { emailErr.innerText = translations[currentLang].email_invalid; isValid = false; }
-    if (!questionVal) { questionErr.innerText = translations[currentLang].question_required; isValid = false; }
-
-    if (!isValid) return;
-
-    // Демо отправка в Google Sheets через Web App (по желанию, плюс сделаем запрос в тестовый endpoint имитация)
-    // Добавлена поддержка отправки в Google Sheets (необязательно, но приятно)
-    try {
-      // Имитация отправки - можно заменить на реальный URL от Google Apps Script
-      // Чтобы соответствовать условию "плюсом" показываем успех и логируем в консоль
-      console.log('Данные формы:', {nameVal, phoneVal, emailVal, questionVal});
-      statusMsg.innerText = translations[currentLang].success_msg;
-      statusMsg.style.color = '#22c55e';
-      form.reset();
-      setTimeout(() => statusMsg.innerText = '', 3000);
-
-      // Дополнительно - можно отправить в Google Sheets используя fetch, но для примера просто уведомление
-      // Реальный URL нужно развернуть (для демо оставим так, требование опционально)
-      // await fetch('https://script.google.com/macros/s/YOUR_ID/exec', {method: 'POST', mode: 'no-cors', body: JSON.stringify({name:nameVal,...})});
-    } catch (err) {
-      statusMsg.innerText = 'Ошибка отправки. Попробуйте позже.';
-    }
-  }
-
-  // -------------------- 404 handling (если хэш не существует) --------------------
-  function handleRouting() {
-    const hash = window.location.hash.substring(1);
-    const validSections = ['home', 'about', 'skills', 'education', 'projects', 'contact'];
-    const notFoundDiv = document.getElementById('notFoundPage');
-    const mainSections = document.querySelectorAll('main section, #contact, #home, #about, #skills, #education, #projects');
-    if (hash && !validSections.includes(hash)) {
-      document.querySelectorAll('main section, #contact, #home, #about, #skills, #education, #projects').forEach(sec => sec.style.display = 'none');
-      notFoundDiv.style.display = 'block';
-    } else {
-      document.querySelectorAll('main section, #contact, #home, #about, #skills, #education, #projects').forEach(sec => sec.style.display = '');
-      notFoundDiv.style.display = 'none';
-      if (hash) document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' });
-    }
-  }
-
-  // initialize listeners
-  window.addEventListener('load', () => {
-    const browserLang = getBrowserLang();
-    currentLang = browserLang;
-    updateLanguage(currentLang);
-    initTheme();
-
-    const themeToggle = document.getElementById('themeToggle');
-    const langToggle = document.getElementById('langToggle');
-    const pdfBtn = document.getElementById('downloadPDF');
-
-    themeToggle.addEventListener('click', () => {
-      const newTheme = document.body.classList.contains('dark') ? 'light' : 'dark';
-      applyTheme(newTheme);
-    });
-
-    langToggle.addEventListener('click', () => {
-      const newLang = currentLang === 'ru' ? 'en' : 'ru';
-      updateLanguage(newLang);
-    });
-
-    pdfBtn.addEventListener('click', downloadPDF);
-    form.addEventListener('submit', handleSubmit);
-    window.addEventListener('hashchange', handleRouting);
-    handleRouting();
-    document.getElementById('backHome')?.addEventListener('click', (e) => { e.preventDefault(); window.location.hash = 'home'; });
-  });
-</script>
+<script src="js/main.js"></script>
 </body>
 </html>
-```
