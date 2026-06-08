@@ -19,9 +19,10 @@
 - LocalStorage для сохранения темы
 
 ## Установка и запуск
-
-1. Склонируйте репозиторий(git bush):
+1.Клонируйте репозиторий:
 git clone https://github.com/sykqwer/yea.git
-2.Откройте папку
-cd yea
-3. окройте index.html
+
+2. **Перейдите в папку с проектом:**
+cd portfolio
+
+3. **Откройте файл index.html**
